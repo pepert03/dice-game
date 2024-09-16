@@ -1,0 +1,51 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="dice"
+run/main_scene="res://scenes/game.tscn"
+config/features=PackedStringArray("4.3", "Mobile")
+boot_splash/bg_color=Color(0.207843, 0.313726, 0.298039, 1)
+boot_splash/image="res://icon.png"
+config/icon="res://icon.svg"
+boot_splash/minimum_display_time=2000
+
+[autoload]
+
+Ui="*res://scenes/ui.tscn"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/sprites/pngs/cursor.png"
+window/bg_color=Color(0.239216, 0.478431, 0.447059, 1)
+window/image="res://icon.png"
+window/show_image=true
+window/icon="res://icon.svg"
+
+[editor]
+
+movie_writer/movie_file="C:/Users/peper/OneDrive - Universidad Pontificia Comillas/Documentos/Godot/dice/movie/movie.avi"
+
+[input]
+
+mouse_click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

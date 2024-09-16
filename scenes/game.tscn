@@ -1,0 +1,857 @@
+[gd_scene load_steps=29 format=3 uid="uid://dlv41v66s4ndu"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_aofaj"]
+[ext_resource type="Texture2D" uid="uid://c3oe1lmny4oxm" path="res://assets/sprites/pngs/background.png" id="3_3vat7"]
+[ext_resource type="PackedScene" uid="uid://cyl6vuiapbxv6" path="res://scenes/cell.tscn" id="3_p8pmc"]
+[ext_resource type="Texture2D" uid="uid://b1epmgjdkk17w" path="res://assets/sprites/pngs/background_gradient.png" id="4_rtgiv"]
+[ext_resource type="Script" path="res://scripts/god.gd" id="4_t8cry"]
+[ext_resource type="FontFile" uid="uid://b13bjnb8js1lx" path="res://assets/fonts/Rubik-Bold.ttf" id="6_plw6j"]
+[ext_resource type="Script" path="res://scripts/solution.gd" id="7_cunb7"]
+[ext_resource type="Script" path="res://scripts/previous.gd" id="7_w86ej"]
+[ext_resource type="Texture2D" uid="uid://caykgq3c6ifpu" path="res://assets/sprites/pngs/hint.png" id="8_jre3l"]
+[ext_resource type="Texture2D" uid="uid://boibngp8uwcwk" path="res://assets/sprites/pngs/previous.png" id="9_4w7k6"]
+[ext_resource type="Script" path="res://scripts/title.gd" id="11_elbkr"]
+[ext_resource type="Texture2D" uid="uid://dbi3xdqcxbo4g" path="res://assets/gifs/1_pattern.jpg" id="11_vvyjr"]
+[ext_resource type="Texture2D" uid="uid://33hjxjmg7edo" path="res://assets/gifs/2r_pattern.jpg" id="12_hmsnb"]
+[ext_resource type="Texture2D" uid="uid://b66y711yxq42d" path="res://assets/sprites/pngs/1.png" id="12_yv26t"]
+[ext_resource type="Texture2D" uid="uid://0smqfo7yeolm" path="res://assets/gifs/2_pattern.jpg" id="13_3akc0"]
+[ext_resource type="Texture2D" uid="uid://cthewuh8wurhh" path="res://assets/sprites/pngs/0.png" id="13_lqrvd"]
+[ext_resource type="Texture2D" uid="uid://10g3av05w6to" path="res://assets/gifs/3r_pattern.jpg" id="14_i5rx8"]
+[ext_resource type="Texture2D" uid="uid://djuwk404hbf2o" path="res://assets/gifs/3_pattern.jpg" id="15_majrj"]
+[ext_resource type="Texture2D" uid="uid://qeo7dteg72xw" path="res://assets/gifs/4_pattern.jpg" id="16_lt4r5"]
+[ext_resource type="Texture2D" uid="uid://bqul2na15yukf" path="res://assets/gifs/5_pattern.jpg" id="17_xc7ox"]
+[ext_resource type="Texture2D" uid="uid://bexe0wlm65ocw" path="res://assets/gifs/6r_pattern.jpg" id="18_x4hfj"]
+[ext_resource type="Texture2D" uid="uid://i3i5tmfssnip" path="res://assets/gifs/6_pattern.jpg" id="19_ptk1x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nhqn2"]
+size = Vector2(87.4516, 93.6452)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k733e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_vvyjr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_hmsnb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_3akc0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_i5rx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_majrj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lt4r5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_xc7ox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_x4hfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_ptk1x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.75
+}]
+
+[sub_resource type="Animation" id="Animation_ddoow"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(457, -586)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.74, 0.74)]
+}
+
+[sub_resource type="Animation" id="Animation_vy0bm"]
+resource_name = "float"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, -533), Vector2(640, -533)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.74, 0.74), Vector2(0.785, 0.785)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ej4uv"]
+_data = {
+"RESET": SubResource("Animation_ddoow"),
+"float": SubResource("Animation_vy0bm")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qajcq"]
+size = Vector2(1740, 820)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -772.64)
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("board_node", "camera", "labels", "restrictions_node")]
+unique_name_in_owner = true
+script = ExtResource("1_aofaj")
+board_node = NodePath("../Board")
+camera = NodePath("../Camera2D")
+labels = NodePath("../Labels")
+restrictions_node = NodePath("../Restrictions")
+
+[node name="Board" type="Node2D" parent="."]
+script = ExtResource("4_t8cry")
+
+[node name="Background" type="Sprite2D" parent="Board"]
+position = Vector2(669, 63.4999)
+scale = Vector2(6.55556, 6.36842)
+texture = ExtResource("3_3vat7")
+
+[node name="BackgroundGradient" type="Sprite2D" parent="Board"]
+position = Vector2(640, 288)
+scale = Vector2(0.989062, 0.711735)
+texture = ExtResource("4_rtgiv")
+
+[node name="Cell0" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 130.355)
+
+[node name="Cell1" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 130.355)
+cellindex = 1
+
+[node name="Cell2" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 130.355)
+cellindex = 2
+
+[node name="Cell3" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 288)
+cellindex = 3
+
+[node name="Cell4" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 288)
+cellindex = 4
+
+[node name="Cell5" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 288)
+cellindex = 5
+
+[node name="Cell6" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 445.645)
+cellindex = 6
+
+[node name="Cell7" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 445.645)
+cellindex = 7
+
+[node name="Cell8" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 445.645)
+cellindex = 8
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="Completed" type="Node2D" parent="Labels"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(504, -37.99)
+scale = Vector2(0.555, 0.555)
+
+[node name="2" type="Label" parent="Labels/Completed"]
+offset_top = 3.42
+offset_right = 488.0
+offset_bottom = 111.42
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 33
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "Completed"
+
+[node name="1" type="Label" parent="Labels/Completed"]
+offset_right = 286.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "Completed"
+
+[node name="Levels" type="Node2D" parent="Labels"]
+position = Vector2(561, -34)
+scale = Vector2(0.555, 0.555)
+
+[node name="2" type="Label" parent="Labels/Levels"]
+offset_top = 3.0
+offset_right = 288.0
+offset_bottom = 111.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 33
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "Levels"
+
+[node name="1" type="Label" parent="Labels/Levels"]
+offset_right = 286.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "Levels"
+
+[node name="Solution" type="Area2D" parent="Labels"]
+position = Vector2(1220, 678)
+scale = Vector2(1.24, 1.24)
+script = ExtResource("7_cunb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/Solution"]
+position = Vector2(12.2742, -8.82257)
+shape = SubResource("RectangleShape2D_nhqn2")
+
+[node name="Hint" type="Sprite2D" parent="Labels/Solution"]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(20, -7.15256e-06)
+scale = Vector2(0.367647, 0.367647)
+texture = ExtResource("8_jre3l")
+
+[node name="Previous" type="Area2D" parent="Labels"]
+position = Vector2(15, 686)
+scale = Vector2(1.535, 1.535)
+script = ExtResource("7_w86ej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Labels/Previous"]
+position = Vector2(20, 2)
+shape = SubResource("RectangleShape2D_nhqn2")
+
+[node name="Previous" type="Sprite2D" parent="Labels/Previous"]
+modulate = Color(1, 1, 1, 0.196078)
+position = Vector2(20, -7.15256e-06)
+scale = Vector2(0.367647, 0.367647)
+texture = ExtResource("9_4w7k6")
+
+[node name="Date" type="Label" parent="Labels"]
+modulate = Color(1, 1, 1, 0)
+offset_left = 521.0
+offset_top = 514.59
+offset_right = 756.0
+offset_bottom = 557.59
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 36
+text = "11 · 08 · 2024"
+
+[node name="Rules" type="Node2D" parent="Labels"]
+position = Vector2(1280, 0)
+
+[node name="Background" type="Sprite2D" parent="Labels/Rules"]
+modulate = Color(0.986752, 0.986752, 0.986752, 1)
+position = Vector2(636.5, -405.5)
+scale = Vector2(3.62678, 2.03601)
+texture = ExtResource("3_3vat7")
+
+[node name="1" type="Label" parent="Labels/Rules"]
+offset_left = -119.0
+offset_top = -264.0
+offset_right = 770.0
+offset_bottom = -119.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -1
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 25
+text = "Objective: 
+Place all the dice on the 3x3 board 
+and leave them with exactly 0 lives 
+(dead dice cannot be attacked).
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="2" type="Label" parent="Labels/Rules"]
+offset_left = 510.0
+offset_top = -266.0
+offset_right = 1399.0
+offset_bottom = -121.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -1
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 8
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 25
+text = "Turn: 
+Each time you place a die, 
+it attacks the dice on the board that are 
+under the 'attack pattern' of the placed die."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Labels/Rules"]
+position = Vector2(949, -492)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_k733e")
+frame_progress = 0.571015
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Labels/Rules"]
+position = Vector2(322, -492)
+scale = Vector2(0.32, 0.32)
+sprite_frames = SubResource("SpriteFrames_k733e")
+autoplay = "default"
+frame_progress = 0.637352
+
+[node name="Restrictions" type="Node2D" parent="."]
+
+[node name="1" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(561.865, 130.355)
+
+[node name="Label" type="Label" parent="Restrictions/1"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="2" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(719.395, 130.355)
+
+[node name="Label" type="Label" parent="Restrictions/2"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="3" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(482.355, 210.315)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/3"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="4" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(640, 210.315)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/4"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="5" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(797.645, 210.315)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/5"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="6" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(561.865, 288)
+
+[node name="Label" type="Label" parent="Restrictions/6"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="7" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(719.395, 288)
+
+[node name="Label" type="Label" parent="Restrictions/7"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="8" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(482.355, 367.59)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/8"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="9" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(640, 367.59)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/9"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="10" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(797.645, 367.59)
+rotation = 1.5708
+
+[node name="Label" type="Label" parent="Restrictions/10"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="11" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(561.865, 445.645)
+
+[node name="Label" type="Label" parent="Restrictions/11"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="12" type="Node2D" parent="Restrictions"]
+visible = false
+position = Vector2(719.395, 445.645)
+
+[node name="Label" type="Label" parent="Restrictions/12"]
+modulate = Color(1, 1, 1, 0.160784)
+offset_left = -8.555
+offset_top = -19.64
+offset_right = 20.445
+offset_bottom = 47.36
+scale = Vector2(0.59, 0.59)
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 56
+text = "<"
+
+[node name="Title" type="Node2D" parent="."]
+script = ExtResource("11_elbkr")
+
+[node name="Title" type="Node2D" parent="Title"]
+position = Vector2(457, -586)
+scale = Vector2(0.74, 0.74)
+
+[node name="BackgroundGradient" type="Sprite2D" parent="Title/Title"]
+modulate = Color(1, 1, 1, 0.576471)
+position = Vector2(3.05176e-05, 6.48499e-05)
+scale = Vector2(0.983953, 0.799779)
+texture = ExtResource("4_rtgiv")
+
+[node name="2" type="Label" parent="Title/Title"]
+offset_left = -256.757
+offset_top = -61.2095
+offset_right = 268.243
+offset_bottom = 46.7905
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 33
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "a dice game
+"
+
+[node name="1" type="Label" parent="Title/Title"]
+offset_left = -256.757
+offset_top = -63.9121
+offset_right = 268.243
+offset_bottom = 44.0879
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.556953, 0.556953, 0.556953, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 90
+text = "a dice game
+"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title/Title"]
+libraries = {
+"": SubResource("AnimationLibrary_ej4uv")
+}
+autoplay = "float"
+
+[node name="Level" type="Area2D" parent="Title"]
+position = Vector2(640, -390)
+scale = Vector2(0.1, 0.1)
+
+[node name="Hover" type="Node2D" parent="Title/Level"]
+visible = false
+position = Vector2(-494.505, 0)
+
+[node name="hover" type="Sprite2D" parent="Title/Level/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(-1.11621e-05, 30)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover2" type="Sprite2D" parent="Title/Level/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(494.505, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover3" type="Sprite2D" parent="Title/Level/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(989.01, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="Shadows" type="Node2D" parent="Title/Level"]
+
+[node name="Shadow2" type="Sprite2D" parent="Title/Level/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow" type="Sprite2D" parent="Title/Level/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(0, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow3" type="Sprite2D" parent="Title/Level/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Numbers" type="Node2D" parent="Title/Level"]
+position = Vector2(494.505, 0)
+
+[node name="Number3" type="Sprite2D" parent="Title/Level/Numbers"]
+position = Vector2(-989.01, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number2" type="Sprite2D" parent="Title/Level/Numbers"]
+position = Vector2(-494.505, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number" type="Sprite2D" parent="Title/Level/Numbers"]
+texture = ExtResource("13_lqrvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Title/Level"]
+visible = false
+position = Vector2(0, 29.9991)
+shape = SubResource("RectangleShape2D_qajcq")
+
+[node name="Label" type="Label" parent="Title/Level"]
+offset_left = -700.0
+offset_top = -260.0
+offset_right = -383.0
+offset_bottom = -141.0
+scale = Vector2(4.425, 4.425)
+theme_override_colors/font_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/font_shadow_color = Color(0.355313, 0.355314, 0.355313, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 100
+text = "Levels"
+
+[node name="Daily" type="Area2D" parent="Title"]
+position = Vector2(640, -293)
+scale = Vector2(0.1, 0.1)
+
+[node name="Hover" type="Node2D" parent="Title/Daily"]
+visible = false
+position = Vector2(-494.505, 0)
+
+[node name="hover" type="Sprite2D" parent="Title/Daily/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(-1.11621e-05, 30)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover2" type="Sprite2D" parent="Title/Daily/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(494.505, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover3" type="Sprite2D" parent="Title/Daily/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(989.01, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="Shadows" type="Node2D" parent="Title/Daily"]
+
+[node name="Shadow2" type="Sprite2D" parent="Title/Daily/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow" type="Sprite2D" parent="Title/Daily/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(0, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow3" type="Sprite2D" parent="Title/Daily/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Numbers" type="Node2D" parent="Title/Daily"]
+position = Vector2(494.505, 0)
+
+[node name="Number3" type="Sprite2D" parent="Title/Daily/Numbers"]
+position = Vector2(-989.01, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number2" type="Sprite2D" parent="Title/Daily/Numbers"]
+position = Vector2(-494.505, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number" type="Sprite2D" parent="Title/Daily/Numbers"]
+texture = ExtResource("13_lqrvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Title/Daily"]
+visible = false
+position = Vector2(0, 29.9991)
+shape = SubResource("RectangleShape2D_qajcq")
+
+[node name="Label" type="Label" parent="Title/Daily"]
+offset_left = -557.145
+offset_top = -260.0
+offset_right = -308.145
+offset_bottom = -141.0
+scale = Vector2(4.425, 4.425)
+theme_override_colors/font_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/font_shadow_color = Color(0.355313, 0.355314, 0.355313, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 100
+text = "Daily"
+
+[node name="Tutorial" type="Area2D" parent="Title"]
+position = Vector2(640, -196.085)
+scale = Vector2(0.1, 0.1)
+
+[node name="Hover" type="Node2D" parent="Title/Tutorial"]
+visible = false
+position = Vector2(-494.505, 0)
+
+[node name="hover" type="Sprite2D" parent="Title/Tutorial/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(-1.11621e-05, 30)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover2" type="Sprite2D" parent="Title/Tutorial/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(494.505, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="hover3" type="Sprite2D" parent="Title/Tutorial/Hover"]
+modulate = Color(0.000693898, 0.000693898, 0.000693898, 1)
+position = Vector2(989.01, 29.9999)
+scale = Vector2(1.11576, 1.19944)
+texture = ExtResource("12_yv26t")
+
+[node name="Shadows" type="Node2D" parent="Title/Tutorial"]
+
+[node name="Shadow2" type="Sprite2D" parent="Title/Tutorial/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(-494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow" type="Sprite2D" parent="Title/Tutorial/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(0, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Shadow3" type="Sprite2D" parent="Title/Tutorial/Shadows"]
+modulate = Color(0.621524, 0.621524, 0.621524, 1)
+position = Vector2(494.505, 60.345)
+texture = ExtResource("13_lqrvd")
+
+[node name="Numbers" type="Node2D" parent="Title/Tutorial"]
+position = Vector2(494.505, 0)
+
+[node name="Number3" type="Sprite2D" parent="Title/Tutorial/Numbers"]
+position = Vector2(-989.01, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number2" type="Sprite2D" parent="Title/Tutorial/Numbers"]
+position = Vector2(-494.505, 0)
+texture = ExtResource("13_lqrvd")
+
+[node name="Number" type="Sprite2D" parent="Title/Tutorial/Numbers"]
+texture = ExtResource("13_lqrvd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Title/Tutorial"]
+visible = false
+position = Vector2(0, 29.9991)
+shape = SubResource("RectangleShape2D_qajcq")
+
+[node name="Label" type="Label" parent="Title/Tutorial"]
+offset_left = -607.145
+offset_top = -260.0
+offset_right = -331.145
+offset_bottom = -141.0
+scale = Vector2(4.425, 4.425)
+theme_override_colors/font_color = Color(0.619608, 0.619608, 0.619608, 1)
+theme_override_colors/font_shadow_color = Color(0.355313, 0.355314, 0.355313, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = -4
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("6_plw6j")
+theme_override_font_sizes/font_size = 100
+text = "Rules"
+
+[connection signal="input_event" from="Labels/Solution" to="Labels/Solution" method="_on_input_event"]
+[connection signal="mouse_entered" from="Labels/Solution" to="Labels/Solution" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Labels/Solution" to="Labels/Solution" method="_on_mouse_exited"]
+[connection signal="input_event" from="Labels/Previous" to="Labels/Previous" method="_on_input_event"]
+[connection signal="mouse_entered" from="Labels/Previous" to="Labels/Previous" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Labels/Previous" to="Labels/Previous" method="_on_mouse_exited"]
+[connection signal="input_event" from="Title/Level" to="Title" method="_on_level_input_event"]
+[connection signal="mouse_entered" from="Title/Level" to="Title" method="_on_level_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Level" to="Title" method="_on_level_mouse_exited"]
+[connection signal="input_event" from="Title/Daily" to="Title" method="_on_daily_input_event"]
+[connection signal="mouse_entered" from="Title/Daily" to="Title" method="_on_daily_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Daily" to="Title" method="_on_daily_mouse_exited"]
+[connection signal="input_event" from="Title/Tutorial" to="Title" method="_on_tutorial_input_event"]
+[connection signal="mouse_entered" from="Title/Tutorial" to="Title" method="_on_tutorial_mouse_entered"]
+[connection signal="mouse_exited" from="Title/Tutorial" to="Title" method="_on_tutorial_mouse_exited"]

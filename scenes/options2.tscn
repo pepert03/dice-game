@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8e4kmv6l53"]
+
+[ext_resource type="Script" path="res://scripts/options2.gd" id="1_4cd57"]
+[ext_resource type="Texture2D" uid="uid://bgngysx6h1yq6" path="res://assets/sprites/pngs/menu.png" id="2_6x7v0"]
+[ext_resource type="Texture2D" uid="uid://dwl575rqsjs4n" path="res://assets/sprites/pngs/back.png" id="3_w2t3f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycqjj"]
+size = Vector2(134.759, 133.69)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clksn"]
+size = Vector2(161.905, 138.095)
+
+[node name="Options2" type="Node2D"]
+scale = Vector2(0.21, 0.21)
+script = ExtResource("1_4cd57")
+
+[node name="Reload" type="Area2D" parent="."]
+position = Vector2(14.91, 0)
+scale = Vector2(0.935, 0.935)
+
+[node name="Reload2" type="Sprite2D" parent="Reload"]
+position = Vector2(-16.7843, 0)
+scale = Vector2(1.507, 1.507)
+texture = ExtResource("2_6x7v0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Reload"]
+position = Vector2(-16.5294, -1.60428)
+shape = SubResource("RectangleShape2D_ycqjj")
+
+[node name="Back" type="Area2D" parent="."]
+position = Vector2(-243.995, 0)
+
+[node name="Back2" type="Sprite2D" parent="Back"]
+rotation = -3.14159
+scale = Vector2(1.44, 1.44)
+texture = ExtResource("3_w2t3f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Back"]
+position = Vector2(0, -2.38096)
+shape = SubResource("RectangleShape2D_clksn")
+
+[connection signal="input_event" from="Reload" to="." method="_on_reload_input_event"]
+[connection signal="mouse_entered" from="Reload" to="." method="_on_reload_mouse_entered"]
+[connection signal="mouse_exited" from="Reload" to="." method="_on_reload_mouse_exited"]
+[connection signal="input_event" from="Back" to="." method="_on_back_input_event"]
+[connection signal="mouse_entered" from="Back" to="." method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back" to="." method="_on_back_mouse_exited"]

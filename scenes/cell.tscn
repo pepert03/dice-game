@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyl6vuiapbxv6"]
+
+[ext_resource type="Script" path="res://scripts/cell.gd" id="1_oh4k6"]
+[ext_resource type="Texture2D" uid="uid://cthewuh8wurhh" path="res://assets/sprites/pngs/0.png" id="2_xem4y"]
+[ext_resource type="FontFile" uid="uid://b13bjnb8js1lx" path="res://assets/fonts/Rubik-Bold.ttf" id="3_yinco"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_voho0"]
+size = Vector2(132, 132)
+
+[node name="Cell" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_oh4k6")
+
+[node name="1" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.0705882)
+scale = Vector2(0.185, 0.185)
+texture = ExtResource("2_xem4y")
+
+[node name="2" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.105882)
+scale = Vector2(0.135, 0.135)
+texture = ExtResource("2_xem4y")
+
+[node name="Level" type="Label" parent="2"]
+offset_left = -185.185
+offset_top = -340.741
+offset_right = 190.815
+offset_bottom = 336.259
+theme_override_fonts/font = ExtResource("3_yinco")
+theme_override_font_sizes/font_size = 571
+text = "3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_voho0")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

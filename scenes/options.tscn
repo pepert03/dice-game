@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqrad1278eqx1"]
+
+[ext_resource type="Script" path="res://scripts/options.gd" id="1_r75pm"]
+[ext_resource type="Texture2D" uid="uid://bcyx54duk7frl" path="res://assets/sprites/pngs/full.png" id="2_el4lp"]
+[ext_resource type="FontFile" uid="uid://b13bjnb8js1lx" path="res://assets/fonts/Rubik-Bold.ttf" id="2_euhqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wya8c"]
+size = Vector2(151.163, 151.163)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7d4lh"]
+size = Vector2(200, 200)
+
+[node name="Options" type="Node2D"]
+script = ExtResource("1_r75pm")
+
+[node name="Fullscreen" type="Area2D" parent="."]
+position = Vector2(0, 0.61)
+scale = Vector2(0.172, 0.172)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fullscreen"]
+visible = false
+shape = SubResource("RectangleShape2D_wya8c")
+
+[node name="Full" type="Sprite2D" parent="Fullscreen"]
+position = Vector2(0, -2.96512)
+scale = Vector2(1.794, 1.794)
+texture = ExtResource("2_el4lp")
+
+[node name="Exit" type="Area2D" parent="."]
+position = Vector2(48.855, -0.205)
+scale = Vector2(0.305, 0.305)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Exit"]
+visible = false
+position = Vector2(51.6066, -54.0984)
+shape = SubResource("RectangleShape2D_7d4lh")
+
+[node name="Label" type="Label" parent="Exit"]
+offset_left = -46.76
+offset_top = -104.0
+offset_right = 77.24
+offset_bottom = 80.0
+pivot_offset = Vector2(14.0351, 31.579)
+theme_override_fonts/font = ExtResource("2_euhqx")
+theme_override_font_sizes/font_size = 155
+text = "x "
+
+[connection signal="input_event" from="Fullscreen" to="." method="_on_fullscreen_input_event"]
+[connection signal="mouse_entered" from="Fullscreen" to="." method="_on_fullscreen_mouse_entered"]
+[connection signal="mouse_exited" from="Fullscreen" to="." method="_on_fullscreen_mouse_exited"]
+[connection signal="input_event" from="Exit" to="." method="_on_exit_input_event"]
+[connection signal="mouse_entered" from="Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="Exit" to="." method="_on_exit_mouse_exited"]

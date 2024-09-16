@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://dlv41v66s4ndu"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_aofaj"]
+[ext_resource type="PackedScene" uid="uid://borfsn8bfptbf" path="res://scenes/exit.tscn" id="2_mlvqo"]
+[ext_resource type="Texture2D" uid="uid://b66y711yxq42d" path="res://assets/sprites/pngs/1.png" id="3_6cnb0"]
+[ext_resource type="Script" path="res://scripts/god.gd" id="4_t8cry"]
+
+[sub_resource type="Gradient" id="Gradient_boaf8"]
+colors = PackedColorArray(0.239216, 0.478431, 0.447059, 1, 0.207843, 0.313726, 0.298039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7fei"]
+gradient = SubResource("Gradient_boaf8")
+width = 5118
+height = 3314
+fill = 1
+fill_from = Vector2(0.513761, 0.495588)
+fill_to = Vector2(0.527523, 1)
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_aofaj")
+
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(427, 139)
+scale = Vector2(0.189679, 0.189679)
+script = ExtResource("4_t8cry")
+
+[node name="Background" type="Sprite2D" parent="Board"]
+position = Vector2(1146.67, 1159.85)
+scale = Vector2(1.36901, 1.23132)
+texture = SubResource("GradientTexture2D_v7fei")
+
+[node name="1" type="Sprite2D" parent="Board"]
+modulate = Color(0, 0, 0, 0.254902)
+position = Vector2(5398.59, 195.066)
+texture = ExtResource("3_6cnb0")
+
+[node name="Exit" parent="." instance=ExtResource("2_mlvqo")]
+position = Vector2(1254.64, 25)

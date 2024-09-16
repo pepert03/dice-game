@@ -1,0 +1,86 @@
+[gd_scene load_steps=10 format=3 uid="uid://dlv41v66s4ndu"]
+
+[ext_resource type="Script" path="res://scripts/GameManager.gd" id="1_aofaj"]
+[ext_resource type="PackedScene" uid="uid://cyl6vuiapbxv6" path="res://scenes/cell.tscn" id="3_p8pmc"]
+[ext_resource type="PackedScene" uid="uid://cqrad1278eqx1" path="res://scenes/options.tscn" id="4_13cen"]
+[ext_resource type="Script" path="res://scripts/god.gd" id="4_t8cry"]
+[ext_resource type="PackedScene" uid="uid://c8e4kmv6l53" path="res://scenes/options2.tscn" id="5_nqnki"]
+
+[sub_resource type="Gradient" id="Gradient_re0vd"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.207843, 0.313726, 0.298039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s4ugo"]
+gradient = SubResource("Gradient_re0vd")
+
+[sub_resource type="Gradient" id="Gradient_2bjt4"]
+colors = PackedColorArray(0.239216, 0.478431, 0.447059, 1, 0.207843, 0.313726, 0.298039, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7fei"]
+gradient = SubResource("Gradient_2bjt4")
+width = 5118
+height = 3314
+fill = 1
+fill_from = Vector2(0.527523, 0.48881)
+fill_to = Vector2(0.876147, 0.843021)
+
+[node name="Game" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("board_node")]
+unique_name_in_owner = true
+script = ExtResource("1_aofaj")
+board_node = NodePath("../Board")
+
+[node name="Board" type="Node2D" parent="."]
+script = ExtResource("4_t8cry")
+
+[node name="Background2" type="Sprite2D" parent="Board"]
+position = Vector2(637, 355)
+scale = Vector2(20.9063, 12.0938)
+texture = SubResource("GradientTexture2D_s4ugo")
+
+[node name="Background" type="Sprite2D" parent="Board"]
+position = Vector2(608, 299.5)
+scale = Vector2(0.265338, 0.189197)
+texture = SubResource("GradientTexture2D_v7fei")
+
+[node name="Cell0" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 130.355)
+
+[node name="Cell1" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 130.355)
+cellindex = 1
+
+[node name="Cell2" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 130.355)
+cellindex = 2
+
+[node name="Cell3" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 288)
+cellindex = 3
+
+[node name="Cell4" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 288)
+cellindex = 4
+
+[node name="Cell5" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 288)
+cellindex = 5
+
+[node name="Cell6" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(482.355, 445.645)
+cellindex = 6
+
+[node name="Cell7" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(640, 445.645)
+cellindex = 7
+
+[node name="Cell8" parent="Board" instance=ExtResource("3_p8pmc")]
+position = Vector2(797.645, 445.645)
+cellindex = 8
+
+[node name="Options" parent="." instance=ExtResource("4_13cen")]
+position = Vector2(1210, 25)
+
+[node name="Options2" parent="." instance=ExtResource("5_nqnki")]
+position = Vector2(30, 25)
