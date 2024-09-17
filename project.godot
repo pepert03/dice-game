@@ -35,7 +35,9 @@ window/icon="res://icon.svg"
 
 [editor]
 
-movie_writer/movie_file="C:/Users/peper/OneDrive - Universidad Pontificia Comillas/Documentos/Godot/dice/movie/movie.avi"
+movie_writer/mjpeg_quality=1.0
+movie_writer/movie_file="C:/Users/peper/OneDrive - Universidad Pontificia Comillas/Documentos/Godot/dice/assets/frames/movie.png"
+movie_writer/fps=5
 
 [input]
 

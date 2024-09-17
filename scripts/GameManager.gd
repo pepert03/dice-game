@@ -11,7 +11,7 @@ const RESTRICTIONS = {
 	11: [6,7],12: [7,8]
 }
 
-enum MODE {MENU,LEVEL,TITLE,INIT}
+enum MODE {MENU,LEVEL,TITLE,INIT,RULES}
 
 @export var board_node : Board
 @export var camera : Camera2D
@@ -115,6 +115,12 @@ func set_daily():
 	
 	level = 9
 	set_restrictions()
+
+func set_rules():
+	var t0 = get_tree().create_tween()
+	t0.tween_property(camera,"position",Vector2(1285,-772.64),1).set_trans(Tween.TRANS_SINE)
+	t0.tween_property(Ui.get_child(0),"position",Vector2(40,40),1)
+	mode = MODE.MENU
 
 
 func on_menu():

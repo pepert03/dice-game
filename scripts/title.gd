@@ -42,4 +42,7 @@ func _on_tutorial_mouse_exited():
 	tutorial.get_child(0).visible = false
 
 func _on_tutorial_input_event(viewport, event, shape_idx):
-	pass # Replace with function body.
+	if event is InputEventMouseButton:
+		if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+			game_manager.mode = game_manager.MODE.RULES
+			game_manager.set_rules()
